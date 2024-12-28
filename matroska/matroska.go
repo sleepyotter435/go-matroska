@@ -1,7 +1,6 @@
 package matroska
 
 import (
-	"log"
 	"os"
 	"time"
 
@@ -146,16 +145,13 @@ const (
 )
 
 func (b *Block) UnmarshalEBML(r *ebml.Reader) error {
-	// log.Printf("\t Block %#v", r.Len())
 	v, err := r.ReadVInt()
 	if err != nil {
-		log.Println(err)
 		return err
 	}
 	b.TrackNumber = TrackNumber(v)
 	p, err := r.Next(3)
 	if err != nil {
-		log.Println(err)
 		return err
 	}
 	b.Timecode = int16(p[0])<<8 | int16(p[1])
@@ -163,14 +159,11 @@ func (b *Block) UnmarshalEBML(r *ebml.Reader) error {
 	if (b.Flags>>1)&3 == 0 {
 		return nil
 	}
-	log.Printf("\t Block %#v", b)
 	p, err = r.Next(1)
 	if err != nil {
-		log.Println(err)
 		return err
 	}
 	b.Frames = int(p[0])
-	log.Printf("\t Block %#v", b)
 	return nil
 }
 
