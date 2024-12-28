@@ -8,7 +8,7 @@
 ## Installation
 
 ```sh
-go get github.com/pixelbender/go-matroska/...
+go get github.com/sleepyotter435/go-matroska/...
 ```
 
 ## Usage
@@ -17,7 +17,7 @@ go get github.com/pixelbender/go-matroska/...
 import (
     "os"
     "fmt"
-    "github.com/pixelbender/go-matroska/matroska"
+    "github.com/sleepyotter435/go-matroska/matroska"
 )
 
 func main() {

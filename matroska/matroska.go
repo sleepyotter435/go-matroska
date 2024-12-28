@@ -1,10 +1,11 @@
 package matroska
 
 import (
-	"github.com/pixelbender/go-matroska/ebml"
 	"log"
 	"os"
 	"time"
+
+	"github.com/sleepyotter435/go-matroska/ebml"
 )
 
 func Decode(file string) (*File, error) {
@@ -134,7 +135,7 @@ type Block struct {
 	Timecode    int16
 	Flags       uint8
 	Frames      int
-	//Data []byte
+	// Data []byte
 }
 
 const (
@@ -145,7 +146,7 @@ const (
 )
 
 func (b *Block) UnmarshalEBML(r *ebml.Reader) error {
-	//log.Printf("\t Block %#v", r.Len())
+	// log.Printf("\t Block %#v", r.Len())
 	v, err := r.ReadVInt()
 	if err != nil {
 		log.Println(err)
